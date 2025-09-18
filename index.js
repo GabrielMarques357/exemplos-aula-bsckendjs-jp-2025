@@ -1,5 +1,6 @@
 
 import express from "express"
+import { exercicio1, exercicio2, exercicio3, exercicio4, exercicio5 } from "./services/exercicio.js"
 
 const app = express()
 
@@ -15,15 +16,24 @@ app.get('/api/pessoa/:id', (req, res) => {
     res.status(200).send("Hello "+ nome)
 })
 
-app.get('/exercicio1/:num1/:num2', (req, res) => {
 
-     const num1 = req.params.num1
-     const num2 = req.params.num2
-     console.log(req.params)
-     const result = num1 + num2
-     
-     res.status(200).send("Resultado: "+ result)
-})
+
+//       /exercicio1/20/10
+app.get('/exercicio1/:num1/:num2', exercicio1)
+
+//       /exercicio2/10/10
+app.get('/exercicio2/:valorHr/:qtdHr', exercicio2)
+
+//       /exercicio3/10/10/5/6/7
+app.get('/exercicio3/:num1/:num2/:num3/:num4/:num5', exercicio3)
+
+//       /exercicio4/10
+app.get('/exercicio4/:celsius', exercicio4)
+
+//       /exercicio5/40
+app.get('/exercicio5/:milhas', exercicio5)
+
+
 
 app.listen(3000, () => {
     console.log("Servidor rodando na porta 3000")
