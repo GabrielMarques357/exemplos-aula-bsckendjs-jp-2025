@@ -1,4 +1,4 @@
- export const exercicio1 = (req, res) => {
+ export const exercicio1Get = (req, res) => {
 
      const num1 = Number (req.params.num1)
      const num2 = Number (req.params.num2)
@@ -6,6 +6,20 @@
      const result = num1 + num2
      
      res.status(200).send("Resultado: "+ result)
+}
+
+export const exercicio1Post = (req, res) => {
+
+     const num1 = Number (req.body.num1)
+     const num2 = Number (req.body.num2)
+     console.log(req.params)
+     const result = num1 + num2
+     
+     res.status(200).send({
+        msg: "O resultado é: "+result,
+        data: result,
+        error: null
+     })
 }
 
 export const exercicio2 = (req, res) => {

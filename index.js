@@ -1,8 +1,9 @@
 
 import express from "express"
-import { exercicio1, exercicio2, exercicio3, exercicio4, exercicio5 } from "./services/exercicio.js"
+import { exercicio1Get, exercicio1Post, exercicio2, exercicio3, exercicio4, exercicio5 } from "./services/exercicio.js"
 
 const app = express()
+app.use(express.json())
 
 app.get('/api/pessoa/:id', (req, res) => {
     // Query params
@@ -19,7 +20,8 @@ app.get('/api/pessoa/:id', (req, res) => {
 
 
 //       /exercicio1/20/10
-app.get('/exercicio1/:num1/:num2', exercicio1)
+app.get('/exercicio1/:num1/:num2', exercicio1Get)
+app.post('/exercicio1', exercicio1Post)
 
 //       /exercicio2/10/10
 app.get('/exercicio2/:valorHr/:qtdHr', exercicio2)
